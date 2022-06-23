@@ -40,11 +40,17 @@ INSTALLED_APPS = [
     'rest_framework',
     'blog.apps.BlogConfig',
     'blog_api.apps.BlogApiConfig',
+     "corsheaders",
+      'mptt',
+    'account.apps.AccountConfig',
+    'phonenumber_field',
+     
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -129,3 +135,10 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ]
 }
+CORS_ALLOWED_ORIGINS = [
+    
+    "http://localhost:3000"
+]
+AUTH_USER_MODEL ='account.Author'
+# PHONENUMBER_DEFAULT_FORMAT="INTERNATIONAL",
+PHONENUMBER_DEFAULT_REGION ='IN'
